@@ -9,22 +9,6 @@
 ![express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
-<!-- PROJECT LOGO -->
-<div align="center">
-<br>
-<a href="">
-    <img src="" >
-  </a>
-<br>
-<br>
-
-  <p align="center">
-  <a href="">View Demo</a>
-    ·
-    <a href="">Report Bug</a>
-  </p>
-</div>
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -52,7 +36,7 @@
 
 ## About The Project
 
-MERN Stack Application for tracking Job Search Process
+MERN Stack Application for booking and applying for eletronic passports online
 
 ### Features
 
