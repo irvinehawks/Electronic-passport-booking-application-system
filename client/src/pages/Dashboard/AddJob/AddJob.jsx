@@ -49,7 +49,7 @@ const AddJob = () => {
   return (
     <Wrapper>
       <form className="form">
-        <h3>{isEditing ? "edit information" : "Book or apply your passport of choice here!"} </h3>
+        <h3>{isEditing ? "edit your information" : "Book or apply your passport of choice here!"} </h3>
 
         {showAlert && <Alert />}
 
@@ -71,22 +71,22 @@ const AddJob = () => {
           {/* location */}
           <FormRow
             type="text"
-            labelText="location"
+            labelText="Your location"
             name="applicationLocation"
             value={applicationLocation}
             handleChange={handleJobInput}
           />
-          {/* job status */}
+          {/* application status */}
           <FormRowSelect
-            name="status"
+            name="Applicant preferences"
             value={status}
             handleChange={handleJobInput}
             list={statusOptions}
           />
-          {/* job type */}
+          {/* application type */}
           <FormRowSelect
             name="applicationType"
-            labelText="type"
+            labelText="Passport type"
             value={applicationType}
             handleChange={handleJobInput}
             list={applicationTypeOptions}
