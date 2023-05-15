@@ -66,7 +66,7 @@ const reducer = (state, action) => {
       jobLocation: action.payload.location,
       showAlert: true,
       alertType: "success",
-      alertText: "User Created! Redirecting to dashboard...",
+      alertText: "Your account have been created successfully! Redirecting to dashboard...",
     };
   }
   if (action.type === REGISTER_USER_ERROR) {
@@ -96,7 +96,7 @@ const reducer = (state, action) => {
       jobLocation: action.payload.location,
       showAlert: true,
       alertType: "success",
-      alertText: "Login Successful! Redirecting to dashboard...",
+      alertText: "You Logged in Successful! Redirecting to dashboard...",
     };
   }
   if (action.type === LOGIN_USER_ERROR) {
@@ -123,7 +123,7 @@ const reducer = (state, action) => {
       jobLocation: action.payload.location,
       showAlert: true,
       alertType: "success",
-      alertText: "User Profile Updated successfully!",
+      alertText: "Your profile have been updated successfully!",
     };
   }
   if (action.type === UPDATE_USER_ERROR) {
@@ -167,9 +167,9 @@ const reducer = (state, action) => {
       editJobId: "",
       name: "",
       id_no: "",
-      aplicationLocation: state.userLocation,
-      applicationType: "full-time",
-      status: "pending",
+      applicationLocation: state.userLocation,
+      applicationType: "one-day",
+      status: "booking",
     };
     return { ...state, ...initialState };
   }
@@ -182,7 +182,7 @@ const reducer = (state, action) => {
       isLoading: false,
       showAlert: true,
       alertType: "success",
-      alertText: "New application Created!",
+      alertText: "You have successfully created your record. Wait for their feedback anytime!",
     };
   }
   if (action.type === CREATE_JOB_ERROR) {

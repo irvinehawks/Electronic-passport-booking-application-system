@@ -14,17 +14,17 @@ const JobSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["scheduled", "declined", "pending"], // the input is of type select
-      default: "pending",
+      enum: ["applying", "renewing", "booking"], // the input is of type select
+      default: "booking",
     },
     applicationType: {
       type: String,
-      enum: ["full-time", "part-time", "remote", "internship"], // the input is of type select
-      default: "full-time",
+      enum: ["one-day", "three-days", "seven-days", "three-months"], // the input is of type select
+      default: "one-day",
     },
     applicationLocation: {
       type: String,
-      default: "my city", // not empty-string so that we can update it
+      default: "type your city or location here", // not empty-string so that we can update it
       required: true,
     },
     createdBy: {
