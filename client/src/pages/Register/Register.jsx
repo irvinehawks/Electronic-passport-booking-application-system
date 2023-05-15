@@ -57,7 +57,8 @@ const Register = () => {
   return (
     <Wrapper className="full-page">
       <form className="form" onSubmit={onSubmit}>
-        <Logo />
+        <h4>E-PASSPORT AUTH *ZW*</h4>
+        {/*<Logo />*/}
         <h3>{values.isMember ? "Login" : "Register"}</h3>
         {showAlert && <Alert />}
 
