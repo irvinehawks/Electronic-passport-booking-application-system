@@ -1,4 +1,4 @@
-# Jobify
+# Electronic passport web platform
 
 <div id="top"></div>
 
@@ -12,16 +12,16 @@
 <!-- PROJECT LOGO -->
 <div align="center">
 <br>
-<a href="https://jobify-abdelrahman-soltan.up.railway.app/">
-    <img src="./client/src/assets/images/logo.svg" alt="Logo" height="50" >
+<a href="">
+    <img src="" >
   </a>
 <br>
 <br>
 
   <p align="center">
-  <a href="https://jobify-abdelrahman-soltan.up.railway.app/">View Demo</a>
+  <a href="">View Demo</a>
     ·
-    <a href="https://github.com/abdrahmansoltan/jobify/issues">Report Bug</a>
+    <a href="">Report Bug</a>
   </p>
 </div>
 
@@ -54,17 +54,13 @@
 
 MERN Stack Application for tracking Job Search Process
 
-![Preview](./client/src/assets/images/preview.PNG)
-![Preview](./client/src/assets/images/preview2.PNG)
-![Preview](./client/src/assets/images/preview3.PNG)
-
 ### Features
 
 - Login / Sign-up
 - Edit user-data
-- Add jobs
-- Browse user's jobs with (search + filter) feature
-- Display jobs-status + monthly-applications in graphs
+- Add bookings or applications
+- Browse user's applications with (search + filter) feature
+- Display application-status + monthly-applications in graphs
 
 ### Built With
 
@@ -79,7 +75,7 @@ MERN Stack Application for tracking Job Search Process
 
 | Email                 | Password |
 | --------------------- | -------- |
-| abdelrahman@gmail.com | 123123   |
+| irvenehawks@gmail.com |    |
 
 #### Validation
 
@@ -97,7 +93,7 @@ MERN Stack Application for tracking Job Search Process
 
 This project require some perquisites and dependencies to be installed, you can find the instructions below
 
-This project require some perquisites and dependencies to be installed, you can view it online using this [demo](https://jobify-abdelrahman-soltan.up.railway.app/). or you can find the instructions below:
+This project require some perquisites and dependencies to be installed, you can view it online using this [TBA]. or you can find the instructions below:
 
 > To get a local copy, follow these simple steps :
 
@@ -108,13 +104,13 @@ This project require some perquisites and dependencies to be installed, you can 
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/abdrahmansoltan/jobify.git
+   git clone..............
    ```
 
 2. go to project folder
 
    ```sh
-   cd jobify
+   cd <directory-name>
    ```
 
 3. install dependencies
@@ -160,12 +156,12 @@ This project require some perquisites and dependencies to be installed, you can 
   - Register User: [http://localhost:5000/api/v1/auth/login](http://localhost:5000/api/v1/auth/login) [POST]
   - Update User: [http://localhost:5000/api/v1/auth/updateUser](http://localhost:5000/api/v1/auth/updateUser) [PATCH]
 
-- **Jobs**
+- **Applications**
 
-  - Get all jobs: [http://localhost:5000/api/v1/jobs?status=all&jobType=all&page=1](http://localhost:5000/api/v1/jobs?status=all&jobType=all&page=1) [GET]
-  - Create job: [http://localhost:5000/api/v1/jobs](http://localhost:5000/api/v1/jobs) [POST]
-  - Update job: [http://localhost:5000/api/v1/jobs/:id](http://localhost:5000/api/v1/jobs/:id) [PATCH]
-  - Delete job: [http://localhost:5000/api/v1/jobs/:id](http://localhost:5000/api/v1/jobs/:id) [DELETE]
+  - Get all applications: [http://localhost:5000/api/v1/jobs?status=all&jobType=all&page=1](http://localhost:5000/api/v1/jobs?status=all&jobType=all&page=1) [GET]
+  - Create application or booking: [http://localhost:5000/api/v1/jobs](http://localhost:5000/api/v1/jobs) [POST]
+  - Update aplication: [http://localhost:5000/api/v1/jobs/:id](http://localhost:5000/api/v1/jobs/:id) [PATCH]
+  - Delete application: [http://localhost:5000/api/v1/jobs/:id](http://localhost:5000/api/v1/jobs/:id) [DELETE]
   - Get stats: [http://localhost:5000/api/v1/jobs/stats](http://localhost:5000/api/v1/jobs/stats) [Get]
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f6f7d32b31857f0d5bc9?action=collection%2Fimport)
