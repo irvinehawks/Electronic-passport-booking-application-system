@@ -14,7 +14,8 @@ const BigSidebar = () => {
       >
         <div className="content">
           <header>
-            <Logo />
+            {/*<Logo />*/}
+            <h4>E-PASSPORT</h4>
           </header>
           <NavLinks />
         </div>
