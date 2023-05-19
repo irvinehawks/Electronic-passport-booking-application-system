@@ -2,6 +2,7 @@ import User from "../models/user.js";
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError, UnAuthenticatedError } from "../errors/index.js";
 
+// Register logic
 // here we're  replacing try-catch with "express-async-errors" Package which passes error to the errorHandler
 const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -30,6 +31,7 @@ const register = async (req, res) => {
   });
 };
 
+// Login logic
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -39,13 +41,13 @@ const login = async (req, res) => {
   const user = await User.findOne({ email }).select("+password"); // here we ask database to provide the user with password which we specified above that it's unselected
 
   if (!user) {
-    throw new UnAuthenticatedError("Invalid Credentials");
+    throw new UnAuthenticatedError("User does not Exist in the system, please create an account to proceed!");
   }
   console.log(user);
 
   const isPasswordCorrect = await user.comparePassword(password);
   if (!isPasswordCorrect) {
-    throw new UnAuthenticatedError("Invalid Credentials");
+    throw new UnAuthenticatedError("Incorrect password");
   }
 
   const token = user.createJWT();

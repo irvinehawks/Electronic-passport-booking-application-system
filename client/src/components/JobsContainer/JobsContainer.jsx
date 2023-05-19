@@ -30,7 +30,7 @@ const JobsContainer = () => {
   if (jobs.length === 0) {
     return (
       <Wrapper>
-        <h2>No applications to display to display at the momment...</h2>
+        <h2>No applications to display at the momment...</h2>
       </Wrapper>
     );
   }
