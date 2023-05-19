@@ -2,11 +2,15 @@ import mongoose from "mongoose";
 import validator from "validator";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { roles } from "../utils/constants.js";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please provide a name"],
+    required: [true, "Please provide a name and surname"],
     minlength: 3,
     maxlength: 20,
     trim: true,
@@ -27,18 +31,19 @@ const UserSchema = new mongoose.Schema({
     minlength: 6,
     select: false, // to prevent it to be sent to the frontEnd in the response
   },
-  lastName: {
+  roles: {
     type: String,
-    trim: true,
-    maxlength: 20,
-    default: "lastName",
+    enum: [roles.admin, roles.applicant],
+    default: roles.applicant,
+    //trim: true,
+    //maxlength: 20,
   },
-  location: {
-    type: String,
-    maxlength: 20,
-    trim: true,
-    default: "my city",
-  },
+  //location: {
+  //type: String,
+  //maxlength: 20,
+  //trim: true,
+  //default: "city or location",
+  //},
 });
 
 // middleware that is executed before the action specified -> "save"
@@ -54,6 +59,12 @@ UserSchema.pre("save", async function () {
   // Hashing password
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
+
+  //If the user signing up or logging in matches the ADMIN_EMAIL, that user automatically
+  //becomes the admin user
+  if(this.email===process.env.ADMIN_EMAIL) {
+    this.role=roles.admin;
+  }
 });
 
 // adding a createJWT-method to the user-object so that it can be used in the controller
