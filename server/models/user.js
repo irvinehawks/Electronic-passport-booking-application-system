@@ -62,7 +62,7 @@ UserSchema.pre("save", async function () {
 
   //If the user signing up or logging in matches the ADMIN_EMAIL, that user automatically
   //becomes the admin user
-  if(this.email===process.env.ADMIN_EMAIL) {
+  if(this.email===process.env.ADMIN_EMAIL.toLowerCase()) {
     this.role=roles.admin;
   }
 });
