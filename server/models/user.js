@@ -2,11 +2,15 @@ import mongoose from "mongoose";
 import validator from "validator";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { roles } from "../utils/constants.js";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please provide a name"],
+    required: [true, "Please provide a name and surname"],
     minlength: 3,
     maxlength: 20,
     trim: true,
@@ -27,23 +31,17 @@ const UserSchema = new mongoose.Schema({
     minlength: 6,
     select: false, // to prevent it to be sent to the frontEnd in the response
   },
-  lastName: {
-    type: String,
-    trim: true,
-    maxlength: 20,
-    default: "",
-  },
-  location: {
-    type: String,
-    maxlength: 20,
-    trim: true,
-    default: "",
-  },
 });
 
 // middleware that is executed before the action specified -> "save"
 UserSchema.pre("save", async function () {
   console.log(this.modifiedPaths()); // shows the modified fields.
+
+  //If the user signing up or logging in matches the ADMIN_EMAIL, that user automatically
+  //becomes the admin user
+  if (this.email === process.env.ADMIN_EMAIL.toLowerCase()) {
+    this.role = roles.admin;
+  }
 
   // Here we don't hash the password again if it's not modified
   if (!this.isModified("password")) {

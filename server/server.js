@@ -60,7 +60,7 @@ app.use(errorHandlerMiddleware);
 
 const start = async () => {
   try {
-    await connectDB("mongodb+srv://irvenehawks:Irvine0153@epassportdb.lc2wkdf.mongodb.net/?retryWrites=true&w=majority");
+    await connectDB(process.env.MONGO_URL);
     //await connectDB("mongodb//27017/epassportdb");
 
     // only connect to server if successfully-connected to DB
