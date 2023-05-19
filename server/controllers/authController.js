@@ -41,7 +41,7 @@ const login = async (req, res) => {
   const user = await User.findOne({ email }).select("+password"); // here we ask database to provide the user with password which we specified above that it's unselected
 
   if (!user) {
-    throw new UnAuthenticatedError("User does not Exist in the system, please create an account to proceed!");
+    throw new UnAuthenticatedError("User does not Exist in the system, please register with us!");
   }
   console.log(user);
 

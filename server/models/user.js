@@ -50,6 +50,12 @@ const UserSchema = new mongoose.Schema({
 UserSchema.pre("save", async function () {
   console.log(this.modifiedPaths()); // shows the modified fields.
 
+  //If the user signing up or logging in matches the ADMIN_EMAIL, that user automatically
+  //becomes the admin user
+  if (this.email === process.env.ADMIN_EMAIL.toLowerCase()) {
+    this.role = roles.admin;
+  }
+
   // Here we don't hash the password again if it's not modified
   if (!this.isModified("password")) {
     return;
@@ -59,12 +65,6 @@ UserSchema.pre("save", async function () {
   // Hashing password
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
-
-  //If the user signing up or logging in matches the ADMIN_EMAIL, that user automatically
-  //becomes the admin user
-  if(this.email===process.env.ADMIN_EMAIL.toLowerCase()) {
-    this.role=roles.admin;
-  }
 });
 
 // adding a createJWT-method to the user-object so that it can be used in the controller
