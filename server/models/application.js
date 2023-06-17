@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const JobSchema = new mongoose.Schema(
+const ApplicationSchema = new mongoose.Schema(
   {
     id_no: {
       type: String,
@@ -9,12 +9,12 @@ const JobSchema = new mongoose.Schema(
     },
     name: {
       type: String,
-      required: [true, "Please provide your full name"],
+      required: [true, "Please provide your name and surname"],
       maxlength: 100,
     },
-    status: {
+    ApplicantionPreferences: {
       type: String,
-      enum: ["applying", "renewing", "booking"], // the input is of type select
+      enum: ["booking", "applying", "renewing"], // the input is of type select
       default: "booking",
     },
     applicationType: {
@@ -28,7 +28,7 @@ const JobSchema = new mongoose.Schema(
       required: true,
     },
     createdBy: {
-      type: mongoose.Types.ObjectId, // so that we we can filter by creator to show the jobs to the user related to them
+      type: mongoose.Types.ObjectId, // so that we we can filter by applicant
       ref: "User",
       required: [true, "Please provide user"],
     },
@@ -36,4 +36,4 @@ const JobSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Job", JobSchema);
+export default mongoose.model("Application", ApplicationSchema);

@@ -13,7 +13,7 @@ const AddJob = () => {
     applicationLocation,
     applicationType,
     applicationTypeOptions,
-    status,
+    ApplicantionPreferences,
     statusOptions,
     handleChange,
     clearValues,
@@ -49,7 +49,11 @@ const AddJob = () => {
   return (
     <Wrapper>
       <form className="form">
-        <h3>{isEditing ? "edit your information" : "Book or apply your passport of choice here!"} </h3>
+        <h3>
+          {isEditing
+            ? "edit your information"
+            : "Book or apply for your passport."}{" "}
+        </h3>
 
         {showAlert && <Alert />}
 
@@ -78,8 +82,9 @@ const AddJob = () => {
           />
           {/* application status */}
           <FormRowSelect
-            name="Applicant preferences"
-            value={status}
+            name="ApplicantionPreferences"
+            labelText="Applicantion preferences"
+            value={ApplicantionPreferences}
             handleChange={handleJobInput}
             list={statusOptions}
           />

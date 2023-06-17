@@ -1,4 +1,4 @@
-import Job from "../models/Job.js";
+import Application from "../models/application.js";
 import mongoose from "mongoose";
 import moment from "moment";
 import { StatusCodes } from "http-status-codes";
@@ -19,8 +19,8 @@ const createJob = async (req, res) => {
     throw new BadRequestError("Please provide all values");
   }
   req.body.createdBy = req.user.userId;
-  const job = await Job.create(req.body);
-  res.status(StatusCodes.CREATED).json({ job });
+  const application = await Application.create(req.body);
+  res.status(StatusCodes.CREATED).json({ application });
 };
 
 const getAllJobs = async (req, res) => {
@@ -43,7 +43,7 @@ const getAllJobs = async (req, res) => {
   }
 
   // NO AWAIT
-  let result = Job.find(queryObject);
+  let result = Application.find(queryObject);
 
   // chain sort conditions
   if (sort === "latest") {
@@ -66,7 +66,7 @@ const getAllJobs = async (req, res) => {
 
   result = result.skip(skip).limit(limit);
   const jobs = await result;
-  const totalJobs = await Job.countDocuments(queryObject); // instead of using the length as length indicates 10 items here and not all jobs
+  const totalJobs = await Application.countDocuments(queryObject); // instead of using the length as length indicates 10 items here and not all jobs
   const numOfPages = Math.ceil(totalJobs / limit);
 
   res.status(StatusCodes.OK).json({ jobs, totalJobs, numOfPages });
@@ -82,16 +82,16 @@ const updateJob = async (req, res) => {
     throw new BadRequestError("Please Provide All Values");
   }
 
-  const job = await Job.findOne({ _id: jobId });
+  const application = await Application.findOne({ _id: jobId });
 
-  if (!job) {
-    throw new NotFoundError(`No job with id ${jobId}`);
+  if (!application) {
+    throw new NotFoundError(`No application with id ${jobId}`);
   }
 
   // check permissions -> to prevent different user from modifying other users' jobs if they have their job-ID
-  checkPermissions(req.user, job.createdBy);
+  checkPermissions(req.user, application.createdBy);
 
-  const updatedJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
+  const updatedJob = await Application.findOneAndUpdate({ _id: jobId }, req.body, {
     new: true,
     runValidators: true, // validate that the data exists
   });
@@ -102,22 +102,22 @@ const updateJob = async (req, res) => {
 const deleteJob = async (req, res) => {
   const { id: jobId } = req.params;
 
-  const job = await Job.findOne({ _id: jobId });
+  const application = await Application.findOne({ _id: jobId });
 
-  if (!job) {
-    throw new NotFoundError(`No job with id ${jobId}`);
+  if (!application) {
+    throw new NotFoundError(`No application with id ${jobId}`);
   }
 
   // check permissions -> to prevent different user from deleting other users' jobs if they have their job-ID
-  checkPermissions(req.user, job.createdBy);
+  checkPermissions(req.user, application.createdBy);
 
-  await job.remove();
-  res.status(StatusCodes.OK).json({ msg: "success! Job Removed" }); // for postman
+  await application.remove();
+  res.status(StatusCodes.OK).json({ msg: "success! application Removed" }); // for postman
 };
 
 // Aggregation pipeline
 const showStats = async (req, res) => {
-  let stats = await Job.aggregate([
+  let stats = await Application.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } }, // all jobs for one user
     { $group: { _id: "$status", count: { $sum: 1 } } }, // group by job-count for each (job-status) field
   ]);
@@ -136,7 +136,7 @@ const showStats = async (req, res) => {
   };
 
   // data for chart
-  let monthlyApplications = await Job.aggregate([
+  let monthlyApplications = await Application.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
     {
       $group: {
