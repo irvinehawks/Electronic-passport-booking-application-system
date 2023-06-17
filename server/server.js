@@ -58,6 +58,7 @@ app.get("*", (req, res) => {
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
+//Connect Database and start the server
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
