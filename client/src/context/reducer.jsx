@@ -96,7 +96,7 @@ const reducer = (state, action) => {
       jobLocation: action.payload.location,
       showAlert: true,
       alertType: "success",
-      alertText: "You Logged in Successful! Redirecting to dashboard...",
+      alertText: "You Logged in Successfully! Redirecting to your dashboard...",
     };
   }
   if (action.type === LOGIN_USER_ERROR) {
