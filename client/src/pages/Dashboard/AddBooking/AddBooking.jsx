@@ -1,8 +1,10 @@
+
 import { FormRow, Alert, FormRowSelect } from "../../../components";
 import { useAppContext } from "../../../context/appContext";
 import Wrapper from "./DashboardFormPage.styles";
 
-const AddJob = () => {
+
+const AddBooking = () => {
   const {
     isLoading,
     isEditing,
@@ -13,7 +15,7 @@ const AddJob = () => {
     applicationLocation,
     applicationType,
     applicationTypeOptions,
-    ApplicantionPreferences,
+    applicationPreferences,
     statusOptions,
     handleChange,
     clearValues,
@@ -49,11 +51,7 @@ const AddJob = () => {
   return (
     <Wrapper>
       <form className="form">
-        <h3>
-          {isEditing
-            ? "edit your information"
-            : "Apply your passport."}{" "}
-        </h3>
+        <h3>{isEditing ? "edit your information" : "Book your passport."} </h3>
 
         {showAlert && <Alert />}
 
@@ -83,8 +81,8 @@ const AddJob = () => {
           {/* application status */}
           <FormRowSelect
             name="ApplicantionPreferences"
-            labelText="Applicantion preferences"
-            value={ApplicantionPreferences}
+            labelText="Booking preferences"
+            value={applicationPreferences}
             handleChange={handleJobInput}
             list={statusOptions}
           />
@@ -95,6 +93,15 @@ const AddJob = () => {
             value={applicationType}
             handleChange={handleJobInput}
             list={applicationTypeOptions}
+          />
+
+          {/* booking date */}
+          <input
+            name="applicationType"
+            labelText="Booking date"
+            value={applicationType}
+            type="date"
+            handleChange={handleJobInput}
           />
 
           {/* ----------------BUTTONS---------------- */}
@@ -124,4 +131,4 @@ const AddJob = () => {
   );
 };
 
-export default AddJob;
+export default AddBooking;
