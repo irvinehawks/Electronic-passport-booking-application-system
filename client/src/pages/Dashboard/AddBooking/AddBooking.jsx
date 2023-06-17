@@ -14,6 +14,7 @@ const AddBooking = () => {
     id_no,
     applicationLocation,
     applicationType,
+    applicationDate,
     applicationTypeOptions,
     applicationPreferences,
     statusOptions,
@@ -99,7 +100,7 @@ const AddBooking = () => {
           <input
             name="applicationType"
             labelText="Booking date"
-            value={applicationType}
+            value={applicationDate}
             type="date"
             handleChange={handleJobInput}
           />
