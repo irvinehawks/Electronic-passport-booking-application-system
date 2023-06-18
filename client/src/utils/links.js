@@ -17,10 +17,9 @@ const links = [
     icon: <IoBarChartSharp />,
   },
   //{ id: 3, text: "all applications", path: "all-jobs", icon: <MdQueryStats /> },
-  { id: 4, text: "Apply your passport", path: "apply", icon: <FaWpforms /> },
-  { id: 5, text: "Book your passport", path: "book", icon: <FaWpforms /> },
-  { id: 6, text: "profile", path: "profile", icon: <ImProfile /> },
-  { id: 7, text: "Resources and accessories", path: "resources", icon: <ImProfile /> },
+  { id: 3, text: "Apply your passport", path: "apply", icon: <FaWpforms /> },
+  { id: 4, text: "profile", path: "profile", icon: <ImProfile /> },
+  { id: 5, text: "Resources and accessories", path: "resources", icon: <ImProfile /> },
 ];
 
 export default links;
