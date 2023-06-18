@@ -5,7 +5,7 @@ import Wrapper from "./Job.styles";
 import JobInfo from "../JobInfo/JobInfo";
 import { useAppContext } from "../../context/appContext";
 
-const Job = ({
+const Booking = ({
   _id,
   name,
   id_no,
@@ -42,7 +42,7 @@ const Job = ({
         <footer>
           <div className="actions">
             <Link
-              to="/apply"
+              to="/book"
               onClick={() => setEditJob(_id)}
               className="btn edit-btn"
             >
@@ -62,4 +62,4 @@ const Job = ({
   );
 };
 
-export default Job;
+export default Booking;

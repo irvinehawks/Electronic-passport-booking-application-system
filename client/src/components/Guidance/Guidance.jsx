@@ -5,7 +5,7 @@ import Wrapper from "./Job.styles";
 import JobInfo from "../JobInfo/JobInfo";
 import { useAppContext } from "../../context/appContext";
 
-const Job = ({
+const Guidance = ({
   _id,
   name,
   id_no,
@@ -35,14 +35,14 @@ const Job = ({
           <JobInfo icon={<FaLocationArrow />} text={applicationLocation} />
           <JobInfo icon={<FaCalendarAlt />} text={date} />
           <JobInfo icon={<FaBriefcase />} text={applicationType} />
-          
+
           <div className={`status ${status}`}>{status}</div>
         </div>
 
         <footer>
           <div className="actions">
             <Link
-              to="/apply"
+              to="/guidance"
               onClick={() => setEditJob(_id)}
               className="btn edit-btn"
             >
@@ -62,4 +62,4 @@ const Job = ({
   );
 };
 
-export default Job;
+export default Guidance;
