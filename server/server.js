@@ -13,7 +13,6 @@ import morgan from "morgan";
 // ------------Routers------------ //
 import authRouter from "./routes/authRoutes.js";
 import jobsRouter from "./routes/jobsRouter.js";
-import bookingsRouter from "./routes/bookingRouter.js"
 
 // ------------middleware------------ //
 import notFoundMiddleware from "./middlewares/not-found.js";
@@ -50,7 +49,6 @@ app.get("/api/v1", (req, res) => {
 });
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
-app.use("/api/v1/bookings", authenticateUser, bookingsRouter);
 
 // direct to index.html for react-router after the 2 routes above
 app.get("*", (req, res) => {
