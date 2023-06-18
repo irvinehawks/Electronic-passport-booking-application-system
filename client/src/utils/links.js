@@ -7,7 +7,7 @@ const links = [
   {
     id: 1,
     text: "User information and guidance",
-    path: "/",
+    path: "/guidance",
     icon: <FaWpforms />,
   },
   {
@@ -20,7 +20,7 @@ const links = [
   { id: 4, text: "Apply your passport", path: "apply", icon: <FaWpforms /> },
   { id: 5, text: "Book your passport", path: "book", icon: <FaWpforms /> },
   { id: 6, text: "profile", path: "profile", icon: <ImProfile /> },
-  { id: 7, text: "Resources and accessories", path: "profile", icon: <ImProfile /> },
+  { id: 7, text: "Resources and accessories", path: "resources", icon: <ImProfile /> },
 ];
 
 export default links;

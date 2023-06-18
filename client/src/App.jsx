@@ -7,6 +7,8 @@ import {
   Stats,
   AddJob,
   AddBooking,
+  Guidance,
+  Resources
 } from "./pages/Dashboard";
 
 function App() {
@@ -22,11 +24,13 @@ function App() {
             </ProtectedRoute>
           }
         >
+          <Route path="guidance" element={<Guidance />} />
           <Route index element={<Stats />} />
           <Route path="all-jobs" element={<AllJobs />} />
           <Route path="apply" element={<AddJob />} />
           <Route path="book" element={<AddBooking />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="resources" element={<Resources />} />
         </Route>
 
         <Route path="/register" element={<Register />}></Route>
