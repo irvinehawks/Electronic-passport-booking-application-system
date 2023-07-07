@@ -13,7 +13,7 @@ const register = async (req, res) => {
   // checking for existed email
   const userAlreadyExists = await User.findOne({ email });
   if (userAlreadyExists) {
-    throw new BadRequestError("Email already in use");
+    throw new BadRequestError("User already exists in the system. Go to the login page and sign in.");
   }
 
   const user = await User.create({ name, email, password });

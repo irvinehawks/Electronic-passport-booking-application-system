@@ -14,6 +14,11 @@ const AddJob = () => {
     applicationType,
     applicationTypeOptions,
     ApplicantionPreferences,
+
+    applicationDate,
+    uploadBirth,
+    uploadPhotos,
+
     statusOptions,
     handleChange,
     clearValues,
@@ -49,11 +54,7 @@ const AddJob = () => {
   return (
     <Wrapper>
       <form className="form">
-        <h3>
-          {isEditing
-            ? "edit your information"
-            : "Apply your passport."}{" "}
-        </h3>
+        <h3>{isEditing ? "edit your information" : "Apply your passport."} </h3>
 
         {showAlert && <Alert />}
 
@@ -95,6 +96,33 @@ const AddJob = () => {
             value={applicationType}
             handleChange={handleJobInput}
             list={applicationTypeOptions}
+          />
+
+          {/* application & date */}
+          <input
+            name="applicationDate"
+            labelText="Booking date"
+            value={applicationDate}
+            type="date"
+            handleChange={handleJobInput}
+          />
+
+          {/* upload birth */}
+          <input
+            name="uploadBirth"
+            labelText="Upload Birth*"
+            value={uploadBirth}
+            type="file"
+            handleChange={handleJobInput}
+          />
+
+          {/* upload photos */}
+          <input
+            name="uploadPhotos"
+            labelText="Upload 2 passport sized photos"
+            value={uploadPhotos}
+            type="file"
+            handleChange={handleJobInput}
           />
 
           {/* ----------------BUTTONS---------------- */}

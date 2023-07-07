@@ -66,7 +66,7 @@ const reducer = (state, action) => {
       jobLocation: action.payload.location,
       showAlert: true,
       alertType: "success",
-      alertText: "Your account have been created successfully! Redirecting to dashboard...",
+      alertText: "Your account have been created successfully! Redirecting to your dashboard...",
     };
   }
   if (action.type === REGISTER_USER_ERROR) {
@@ -182,7 +182,7 @@ const reducer = (state, action) => {
       isLoading: false,
       showAlert: true,
       alertType: "success",
-      alertText: "You have successfully created your record. Wait for their feedback anytime!",
+      alertText: "You have successfully created your record. Wait for our feedback anytime!",
     };
   }
   if (action.type === CREATE_JOB_ERROR) {

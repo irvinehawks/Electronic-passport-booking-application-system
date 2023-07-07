@@ -51,6 +51,7 @@ const initialState = {
   editJobId: "",
   name: "",
   id_no: "",
+
   applicationLocation: userLocation || "",
   applicationTypeOptions: ["one-day", "three-days", "seven-days", "three-months"],
   applicationType: "one-day",
@@ -212,7 +213,13 @@ const AppProvider = ({ children }) => {
 
     try {
       // first get the form-values from the state
-      const { name, id_no, applicationLocation, applicationType, status } = state;
+      const {
+        name,
+        id_no,
+        applicationLocation,
+        applicationType,
+        status,
+      } = state;
 
       await authFetch.post("/jobs", {
         id_no,
@@ -275,7 +282,13 @@ const AppProvider = ({ children }) => {
   const editJob = async () => {
     dispatch({ type: EDIT_JOB_BEGIN });
     try {
-      const { name, id_no, applicationLocation, applicationType, status } = state;
+      const {
+        name,
+        id_no,
+        applicationLocation,
+        applicationType,
+        status,
+      } = state;
 
       await authFetch.patch(`/jobs/${state.editJobId}`, {
         name,
