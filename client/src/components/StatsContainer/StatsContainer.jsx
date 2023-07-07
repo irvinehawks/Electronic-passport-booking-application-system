@@ -9,21 +9,21 @@ const StatsContainer = () => {
   const defaultStats = [
     {
       title: "pending applications",
-      count: stats.pending || 0,
+      count: stats.pending || 4,
       icon: <FaSuitcaseRolling />,
       color: "#e9b949",
       bcg: "#fcefc7",
     },
     {
-      title: "applications scheduled",
-      count: stats.interview || 0,
+      title: "applications approved",
+      count: stats.interview || 3,
       icon: <FaCalendarCheck />,
       color: "#647acb",
       bcg: "#e0e8f9",
     },
     {
       title: "applications declined",
-      count: stats.declined || 0,
+      count: stats.declined || 1,
       icon: <FaBug />,
       color: "#d66a6a",
       bcg: "#ffeeee",

@@ -9,15 +9,21 @@ function Resources() {
       </h3>
       <div>
         <a href="irvene_kwambana_cv1.pdf" download>
-          <button className="about btn pointer">download fingerprints</button>
+          <button className="about btn pointer">
+            fingerprint Forms
+          </button>
         </a>
 
+        <p></p>
         <a href="irvene_kwambana_cv1.pdf" download>
-          <button className="about btn pointer">Affidavit</button>
+          <button className="about btn pointer">Affidavit Forms</button>
+        </a>
+
+        <p></p>
+        <a href="irvene_kwambana_cv1.pdf" download>
+          <button className="about btn pointer">E-passport application guidelines handbook</button>
         </a>
       </div>
-
-      <h4></h4>
       <p></p>
     </div>
   );

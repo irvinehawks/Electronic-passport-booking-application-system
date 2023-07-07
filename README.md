@@ -1,4 +1,4 @@
-# Electronic passport web platform
+# Electronic application and booking web platform
 
 <div id="top"></div>
 

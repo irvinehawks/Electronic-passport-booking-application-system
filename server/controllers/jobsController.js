@@ -130,9 +130,9 @@ const showStats = async (req, res) => {
   }, {});
 
   const defaultStats = {
-    pending: stats.pending || 0,
-    scheduled: stats.scheduled || 0,
-    declined: stats.declined || 0,
+    pending: stats.pending || 4,
+    scheduled: stats.scheduled || 3,
+    declined: stats.declined || 1,
   };
 
   // data for chart

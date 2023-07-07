@@ -27,6 +27,21 @@ const ApplicationSchema = new mongoose.Schema(
       default: "type your city or location here", // not empty-string so that we can update it
       required: true,
     },
+
+    //More form values or input for passport application
+    applicationDate: {
+      type: String,
+    },
+
+    uploadBirth: {
+      type: String,
+    },
+
+    uploadPhotos: {
+      type: String,
+    },
+    //End of additional form input
+
     createdBy: {
       type: mongoose.Types.ObjectId, // so that we we can filter by applicant
       ref: "User",

@@ -11,6 +11,11 @@ const Job = ({
   id_no,
   applicationLocation,
   applicationType,
+
+  applicationDate,
+  uploadBirth,
+  uploadPhotos,
+
   createdAt,
   status,
 }) => {
@@ -35,7 +40,11 @@ const Job = ({
           <JobInfo icon={<FaLocationArrow />} text={applicationLocation} />
           <JobInfo icon={<FaCalendarAlt />} text={date} />
           <JobInfo icon={<FaBriefcase />} text={applicationType} />
-          
+
+          <JobInfo icon={<FaBriefcase />} text={applicationDate} />
+          <JobInfo icon={<FaBriefcase />} text={uploadBirth} />
+          <JobInfo icon={<FaBriefcase />} text={uploadPhotos} />
+
           <div className={`status ${status}`}>{status}</div>
         </div>
 
