@@ -1,6 +1,7 @@
 import User from "../models/user.js";
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError, UnAuthenticatedError } from "../errors/index.js";
+import { sendEmail } from "../mail/mailer.js";
 
 // Register logic
 // here we're  replacing try-catch with "express-async-errors" Package which passes error to the errorHandler
@@ -18,7 +19,7 @@ const register = async (req, res) => {
 
   const user = await User.create({ name, email, password });
   const token = user.createJWT();
-  // sending everything but the password
+  // sending everything but never the password
   res.status(StatusCodes.CREATED).json({
     user: {
       email: user.email,
@@ -29,6 +30,9 @@ const register = async (req, res) => {
     token,
     location: user.location,
   });
+
+  //Sending transactional email
+  
 };
 
 // Login logic
